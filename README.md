@@ -1,6 +1,6 @@
 # Mibew Advanced Button plugin
 
-It make the button refresents actual operator's state and automatically hides it if the chat was started.
+It make the button represents actual operator's state and automatically hides it if the chat was started.
 
 The plugin needs the feature "Tracking and inviting" to be enabled. Otherwise it will just not work.
 
@@ -10,7 +10,7 @@ The plugin needs the feature "Tracking and inviting" to be enabled. Otherwise it
 
 2. Untar/unzip the plugin's archive.
 
-3. Put files of the plugins to the `<Mibew root>/plugins`  folder.
+3. Put files of the plugins to the `<Mibew root>/plugins` folder.
 
 4. Navigate to "`<Mibew Base URL>`/operator/plugin" page and enable the plugin.
 
