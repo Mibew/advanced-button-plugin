@@ -2,6 +2,8 @@
 
 It make the button represents actual operator's state and automatically hides it if the chat was started.
 
+Additionaly the plugin sets the class `mibew_visible` or `mibew_hidden` for the button depending on its alleged visibility. It can be useful for implementing some custom effects with cloaking mode (see below) set to `none`.
+
 The plugin needs the feature "Tracking and inviting" to be enabled. Otherwise it will just not work.
 
 NB.: If one enabled the feature "Tracking and inviting" for the first time, the button should be regenerated.
@@ -36,7 +38,7 @@ Type: `String`
 
 Default: `visibility`
 
-Specify a mode to hide the button after the start of the chat. Possible values: `visibility` (hide using `visibility` CSS property), `display` (hide using `display` CSS property), `none` (do nothing).
+Specify a mode to cloak the button after the start of the chat. Possible values: `visibility` (cloak using `visibility` CSS property), `display` (cloak using `display` CSS property), `none` (do nothing).
 
 ### config.submode
 
