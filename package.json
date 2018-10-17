@@ -1,5 +1,5 @@
 {
-    "version": "0.0.3",
+    "version": "0.0.4",
     "devDependencies": {
         "gulp": ">3.8.10",
         "event-stream": ">3.1.7",
