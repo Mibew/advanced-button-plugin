@@ -4,6 +4,8 @@ It make the button represents actual operator's state and automatically hides it
 
 The plugin needs the feature "Tracking and inviting" to be enabled. Otherwise it will just not work.
 
+NB.: If one enabled the feature "Tracking and inviting" for the first time, the button should be regenerated.
+
 ## Installation
 
 1. Get the archive with the plugin sources. You can download it from the [official site](https://mibew.org/plugins#mibew-advanced-button) or build the plugin from sources.
@@ -12,11 +14,37 @@ The plugin needs the feature "Tracking and inviting" to be enabled. Otherwise it
 
 3. Put files of the plugins to the `<Mibew root>/plugins` folder.
 
-4. Navigate to "`<Mibew Base URL>`/operator/plugin" page and enable the plugin.
+4. (optional) Add plugins configs to "plugins" structure in
+"`<Mibew root>`/configs/config.yml". If the "plugins" stucture looks like
+`plugins: []` it will become:
+    ```yaml
+    plugins:
+        "Mibew:AdvancedButton": # Plugin's configurations are described below
+            mode: display
+            submode: block
+    ```
+
+5. Navigate to "`<Mibew Base URL>`/operator/plugin" page and enable the plugin.
 
 ## Plugin's configurations
 
-The plugin has no configuration.
+The plugin can be configured with values in "`<Mibew root>`/configs/config.yml" file.
+
+### config.mode
+
+Type: `String`
+
+Default: `visibility`
+
+Specify a mode to hide the button after the start of the chat. Possible values: `visibility` (hide using `visibility` CSS property), `display` (hide using `display` CSS property), `none` (do nothing).
+
+### config.submode
+
+Type: `String`
+
+Default: `inline-block`
+
+Specify a value of the `display` CSS property for the visible button if mode was set to `display`.
 
 ## Build from sources
 

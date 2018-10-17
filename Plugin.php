@@ -31,6 +31,43 @@ class Plugin extends \Mibew\Plugin\AbstractPlugin implements \Mibew\Plugin\Plugi
 {
     protected $initialized = true;
 
+    // Default operational mode is visibility cloaking
+    protected $mode = 'visibility';
+
+    // Default submode for display cloaking mode
+    protected $submode = 'inline-block';
+
+    /**
+     * Class constructor.
+     *
+     * @param array $config List of the plugin config.
+     *
+     */
+    public function __construct($config)
+    {
+        // Set operational mode
+        if (isset($config['mode'])) {
+            switch($config['mode']) {
+                case 'display':
+                    $this->mode = 'display';
+                    if (isset($config['submode'])) {
+                        switch($config['submode']) {
+                            case 'block':
+                                $this->submode = 'block';
+                                break;
+                            case 'inline':
+                                $this->submode = 'inline';
+                                break;
+                        }
+                    }
+                    break;
+                case 'none':
+                    $this->mode = 'none';
+                    break;
+            }
+        }
+    }
+
     /**
      * Defines necessary event listener.
      */
@@ -47,7 +84,7 @@ class Plugin extends \Mibew\Plugin\AbstractPlugin implements \Mibew\Plugin\Plugi
      */
     public static function getVersion()
     {
-        return '0.0.1';
+        return '0.0.2';
     }
 
     /**
@@ -61,5 +98,6 @@ class Plugin extends \Mibew\Plugin\AbstractPlugin implements \Mibew\Plugin\Plugi
         $args['response']['load']['refresh'] = $g->generate($this->getFilesPath() . '/js/refresh.js', AssetUrlGeneratorInterface::ABSOLUTE_URL);
         $args['response']['handlers'][] = 'refreshButton';
         $args['response']['dependencies']['refreshButton'] = array('refresh');
+        $args['response']['data']['refreshButton'] = array('mode' => $this->mode, 'submode' => $this->submode);
     }
 }
