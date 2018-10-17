@@ -18,10 +18,7 @@
 namespace Mibew\Mibew\Plugin\AdvancedButton;
 
 use Mibew\Asset\Generator\UrlGeneratorInterface as AssetUrlGeneratorInterface;
-use Mibew\Database;
 use Mibew\EventDispatcher\EventDispatcher;
-use Mibew\EventDispatcher\Events;
-use Mibew\Thread;
 
 /**
  * Provides an ability to automatically refresh the button and set its
