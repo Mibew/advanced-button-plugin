@@ -92,7 +92,7 @@ class Plugin extends \Mibew\Plugin\AbstractPlugin implements \Mibew\Plugin\Plugi
     public function refreshButton(&$args)
     {
         $g = $args['asset_url_generator'];
-        $args['response']['load']['refresh'] = $g->generate($this->getFilesPath() . '/js/refresh.js', AssetUrlGeneratorInterface::ABSOLUTE_URL);
+        $args['response']['load']['refresh'] = $g->generate(str_replace(DIRECTORY_SEPARATOR, '/', $this->getFilesPath()) . '/js/refresh.js', AssetUrlGeneratorInterface::ABSOLUTE_URL);
         $args['response']['handlers'][] = 'refreshButton';
         $args['response']['dependencies']['refreshButton'] = array('refresh');
         $args['response']['data']['refreshButton'] = array('mode' => $this->mode, 'submode' => $this->submode);
