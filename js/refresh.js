@@ -1,7 +1,10 @@
 (function(Mibew) {
     Mibew.APIFunctions.refreshButton = function(data) {
-        // Refresh the button image
-        var img = document.getElementById("mibew-agent-button").getElementsByTagName("img")[0];
+        // Refresh the button image (if exists)
+        var button = document.getElementById("mibew-agent-button");
+        if (!button) { return; }
+        var img = button.getElementsByTagName("img")[0];
+        if (!img) { return; }
         var originalSrc = img.src.replace(/&dummy=\d+/, '');
         img.src = originalSrc + "&dummy=" + (new Date()).getTime();
 
